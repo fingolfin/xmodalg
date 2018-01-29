@@ -22,12 +22,6 @@ Date := "29/01/2018",
 ##  <!ENTITY COPYRIGHTYEARS "2014-2018">
 ##  <#/GAPDoc>
 
-PackageWWWHome := 
-  "http://fef.ogu.edu.tr/matbil/aodabas/xmodalg/",
-
-ArchiveURL := "http://fef.ogu.edu.tr/matbil/aodabas/xmodalg/xmodalg-1.15", 
-ArchiveFormats := ".zip",
-
 Persons := [
     rec(
     LastName      := "Arvasi",
@@ -109,7 +103,8 @@ BannerString := Concatenation(
   "-----------------------------------------------------------------------------\n",
   "Loading XModAlg ", String( ~.Version ), " (", String( ~.Date ), ") for GAP 4.8 \n", 
   "Methods for crossed modules of commutative algebras and cat1-algebras\n",
-  "by Zekeriya Arvasi (zarvasi@ogu.edu.tr) and Alper Odabas (aodabas@ogu.edu.tr).\n"
+  "by Zekeriya Arvasi (zarvasi@ogu.edu.tr) and Alper Odabas (aodabas@ogu.edu.tr).\n",
+  "-----------------------------------------------------------------------------\n"
 ),
 
 TestFile := "tst/testall.g",
