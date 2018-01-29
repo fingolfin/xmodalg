@@ -1,102 +1,119 @@
 #############################################################################
-##  
-##  Demo PackageInfo.g for the GitHubPagesForGAP
+##
+##  PackageInfo.g  file for the package XModAlg 
+##  Zekeriya Arvasi and Alper Odabas 
 ##
 
 SetPackageInfo( rec(
+PackageName := "XModAlg",
+Packagename := "xmodalg",
+Subtitle := "Crossed Modules and Cat1-Algebras",
 
-PackageName := "GitHubPagesForGAP",
+Version := "1.16",
+Date := "29/01/2018",
 
-Subtitle := "A GitHub Pages generator for GAP packages",
-Version := "0.2",
-Date := "04/02/2017", # dd/mm/yyyy format
+##  duplicate these values for inclusion in the manual: 
+##  <#GAPDoc Label="PKGVERSIONDATA">
+##  <!ENTITY VERSION "1.16">
+##  <!ENTITY TARFILENAME "xmodalg-1.16.tar.gz">
+##  <!ENTITY HTMLFILENAME "xmodalg.html">
+##  <!ENTITY RELEASEDATE "29/01/2018">
+##  <!ENTITY LONGRELEASEDATE "29nd January 2018">
+##  <!ENTITY COPYRIGHTYEARS "2014-2018">
+##  <#/GAPDoc>
+
+PackageWWWHome := 
+  "http://fef.ogu.edu.tr/matbil/aodabas/xmodalg/",
+
+ArchiveURL := "http://fef.ogu.edu.tr/matbil/aodabas/xmodalg/xmodalg-1.15", 
+ArchiveFormats := ".zip",
 
 Persons := [
-  rec(
-    LastName      := "Horn",
-    FirstNames    := "Max",
-    IsAuthor      := true,
-    IsMaintainer  := true,
-    Email         := "max.horn@math.uni-giessen.de",
-    WWWHome       := "http://www.quendi.de/math",
-    PostalAddress := Concatenation(
-                       "AG Algebra\n",
-                       "Mathematisches Institut\n",
-                       "Justus-Liebig-Universität Gießen\n",
-                       "Arndtstraße 2\n",
-                       "35392 Gießen\n",
-                       "Germany" ),
-    Place         := "Gießen",
-    Institution   := "Justus-Liebig-Universität Gießen"
-  ),
-
-  rec(
-    LastName      := "Thor",
-    FirstNames    := "A. U.",
+    rec(
+    LastName      := "Arvasi",
+    FirstNames    := "Zekeriya",
     IsAuthor      := true,
     IsMaintainer  := false,
-    #Email         := "author@example.com",
+    Email         := "zarvasi@ogu.edu.tr",
+    PostalAddress := Concatenation( [ 
+                       "Prof. Dr. Z. Arvasi \n",
+                       "Osmangazi University \n",
+                       "Arts and Sciences Faculty \n",
+                       "Department of Mathematics and Computer Science \n",
+                       "Eskisehir \n",
+                       "Turkey"] ),
+    Place         := "Eskisehir",
+    Institution   := "Osmangazi University"
   ),
-
-  rec(
-    LastName      := "Itor",
-    FirstNames    := "Jan",
-    IsAuthor      := false,
+    rec(
+    LastName      := "Odabas",
+    FirstNames    := "Alper",
+    IsAuthor      := true,
     IsMaintainer  := true,
-    #Email         := "janitor@example.com",
-  ),
+    Email         := "aodabas@ogu.edu.tr",
+    PostalAddress := Concatenation( [ 
+                       "Dr. A. Odabas \n",
+                       "Osmangazi University \n",
+                       "Arts and Sciences Faculty \n",
+                       "Department of Mathematics and Computer Science \n",
+                       "Eskisehir \n",
+                       "Turkey"] ),
+    Place         := "Eskisehir",
+    Institution   := "Osmangazi University"
+  )
 ],
 
-Status := "other",
+Status := "deposited",
+CommunicatedBy := "",
+AcceptDate := "",
 
-# The following are not strictly necessary in your own PackageInfo.g
-# (in the sense that update.g only looks at the usual fields
-# like PackageWWWHome, ArchiveURL etc.). But they are convenient
-# if you use exactly the scheme for your package website that we propose.
-GithubUser := "gap-system",
-GithubRepository := ~.PackageName,
-GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
+SourceRepository := rec( 
+  Type := "git", 
+  URL := "https://github.com/gap-packages/xmodalg"
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+PackageWWWHome  := "https://gap-packages.github.io/xmodalg/",
+README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL, 
+                                  "/releases/download/v", ~.Version, 
+                                  "/", ~.PackageName, "-", ~.Version ), 
+SupportEmail := "aodabas@ogu.edu.tr",
+ArchiveFormats  := ".tar.gz",
 
-PackageWWWHome := Concatenation("https://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
-README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-# The following assumes you are using the Github releases system. If not, adjust
-# it accordingly.
-ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/releases/download/v", ~.Version, "/",
-                    ~.GithubRepository, "-", ~.Version),
-
-ArchiveFormats := ".tar.gz .tar.bz2",
-
-AbstractHTML := 
-  "This is a pseudo package that contains no actual\
-  <span class=\"pkgname\">GAP</span> code. Instead, it is a template for other\
-  GAP packages that allows to quickly setup GitHub Pages.",
+AbstractHTML :=
+ "The <span class=\"pkgname\">XModAlg</span> package provides a collection of \
+functions for computing with crossed modules and cat1-algebras \
+and morphisms of these structures.",
 
 PackageDoc := rec(
-  BookName  := "GitHubPagesForGAP",
+  BookName  := "XModAlg",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "A GitHub Pages generator for GAP packages",
+  LongTitle := "Crossed Modules and Cat1-Algebras in GAP",
+  Autoload  := true
 ),
 
-# The following dependencies are fake and for testing / demo purposes
 Dependencies := rec(
-  GAP := ">=4.8.1",
-  NeededOtherPackages := [
-    ["GAPDoc", ">= 1.2"],
-    ["IO", ">= 4.1"],
-  ],
-  SuggestedOtherPackages := [["orb", ">= 4.2"]],
-  ExternalConditions := []
+  GAP := ">=4.8.8",
+  NeededOtherPackages := [ ["XMod", ">=2.64"], ["LAGUNA", ">=3.7.0"] ],
+  SuggestedOtherPackages := [ ["GAPDoc", ">= 1.5.1" ] ],   
+  ExternalConditions := [ ]
 ),
 
 AvailabilityTest := ReturnTrue,
 
-Keywords := ["GitHub Pages", "GAP"]
+BannerString := Concatenation( 
+  "-----------------------------------------------------------------------------\n",
+  "Loading XModAlg ", String( ~.Version ), " (", String( ~.Date ), ") for GAP 4.8 \n", 
+  "Methods for crossed modules of commutative algebras and cat1-algebras\n",
+  "by Zekeriya Arvasi (zarvasi@ogu.edu.tr) and Alper Odabas (aodabas@ogu.edu.tr).\n"
+),
+
+TestFile := "tst/testall.g",
+
+Keywords := ["crossed module of algebras","cat1-algebras"]
 
 ));
-
-
